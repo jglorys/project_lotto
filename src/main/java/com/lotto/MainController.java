@@ -1,5 +1,15 @@
 package com.lotto;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+import java.util.Set;
+import java.util.TreeMap;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -10,14 +20,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.*;
-
 @Controller
 //@ResponseBody
-@Component
+//@Component
+@RequestMapping("/lotto")
 public class MainController {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
+    @ResponseBody
+    @RequestMapping("/test")
+    public String test() {
+    	return "TEST!!";
+    }
+    
+   
     @RequestMapping(value ="/test_view", method = RequestMethod.GET)
     public String testPageView() {
         return "testView";
@@ -104,7 +120,7 @@ public class MainController {
         }
 
         //freq 빈도수 list에
-        List freqList = new ArrayList();
+        List<String> freqList = new ArrayList<String>();
         for (Map.Entry<Integer, Integer> entry : resultFreq.entrySet()) {
             freqList.add(entry.getKey() + "_" + entry.getValue());
         }

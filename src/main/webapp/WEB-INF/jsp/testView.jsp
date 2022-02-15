@@ -76,7 +76,7 @@
 
                 $.ajax({
                    type: 'post',
-                   url: '/lotto_test',
+                   url: '/lotto/lotto_test',
                    data: formData,
                    processData: false,
                    contentType: false,
@@ -84,7 +84,7 @@
                         if (data.result == 'success') {
                             // alert('Lotto 뽑기 완료!');
                             // alert(data.resultList);
-                            location.href="/lotto_result_view?&result=" + data.lottoList;
+                            location.href="/lotto/lotto_result_view?&result=" + data.lottoList;
                         } else if (data.result == 'false') {
                             alert('arrList 에러 발생');
                             location.reload();
